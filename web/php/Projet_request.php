@@ -24,9 +24,9 @@
 
   function user()
 
-    $au = fetch('');
+    //$au = fetch('');
 
-    echo json_encode($au);
+    //echo json_encode($au);
 
   }
 
