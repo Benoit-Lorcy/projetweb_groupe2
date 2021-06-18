@@ -1,5 +1,5 @@
 <?php
-  require_once('Projet_database.php');
+  /*require_once('Projet_database.php');
 
   // Database connexion.
   $db = dbConnect();
@@ -88,7 +88,7 @@
 
     echo"<pre>";
       print_r($res);
-    echo"</pre>"
+    echo"</pre>"*/
 
   // Send data to the client.
   //echo json_encode($data);
