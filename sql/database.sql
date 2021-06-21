@@ -30,42 +30,7 @@ CREATE TABLE ville(
 )ENGINE=InnoDB;
 
 INSERT INTO ville VALUES
-(90078, PETITE FONTAINE, 90360)
-(90089, ROUGEMONT LE CHATEAU, 90110)
-(90091, ST GERMAIN LE CHATELET, 90110)
-(90093, SERMAMAGNY, 90300)
-(90105, VILLARS LE SEC, 90100)
-(91016, ANGERVILLE, 91670)
-(91022, ARRANCOURT, 91690)
-(91093, BOULLAY LES TROUX, 91470)
-(91100, BOUVILLE, 91880)
-(91109, BRIERES LES SCELLES, 91150)
 
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
-(90078, PetiteFontaine, 90360)
 
 #------------------------------------------------------------
 # Table: site_Isen
