@@ -29,9 +29,6 @@ CREATE TABLE ville(
 	,CONSTRAINT ville_PK PRIMARY KEY (code_insee)
 )ENGINE=InnoDB;
 
-INSERT INTO ville VALUES
-
-
 #------------------------------------------------------------
 # Table: site_Isen
 #------------------------------------------------------------
