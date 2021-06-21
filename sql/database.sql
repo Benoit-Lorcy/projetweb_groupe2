@@ -41,6 +41,11 @@ CREATE TABLE site_Isen(
 	,CONSTRAINT site_Isen_ville_FK FOREIGN KEY (code_insee) REFERENCES ville(code_insee)
 )ENGINE=InnoDB;
 
+INSERT INTO site_Isen VALUES
+(ISEN Brest, )
+(ISEN Caen, )
+(ISEN Rennes, )
+(ISEN Nantes, )
 
 #------------------------------------------------------------
 # Table: trajet
