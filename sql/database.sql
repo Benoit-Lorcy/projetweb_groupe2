@@ -42,10 +42,10 @@ CREATE TABLE site_Isen(
 )ENGINE=InnoDB;
 
 INSERT INTO site_Isen VALUES
-(ISEN Brest, )
-(ISEN Caen, )
-(ISEN Rennes, )
-(ISEN Nantes, )
+(ISEN Brest)
+(ISEN Caen)
+(ISEN Rennes)
+(ISEN Nantes)
 
 #------------------------------------------------------------
 # Table: trajet
