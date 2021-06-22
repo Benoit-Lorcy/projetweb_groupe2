@@ -22,9 +22,8 @@ class dbConnector {
     }
 
     // Ajoute un utilisateur
-    public function createUser($mail, $last_name, $password,
-    $phone, $username) {
-        
+    public function createUser($mail, $last_name, $password, $phone, $username) {
+
     }
 
     // Renvoie des informations sur un utilisateur, identifié par son adresse mail

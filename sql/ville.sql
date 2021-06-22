@@ -1,3 +1,9 @@
+#------------------------------------------------------------
+# Table: utilisateur 
+#------------------------------------------------------------
+
+INSERT INTO utilisateur(pseudonyme,nom,prenom,email,mot_de_passe,numero_telelephone) 
+VALUES ("x","x","x","x","x@isen.fr","02 98 03 84 00")
 
 #------------------------------------------------------------
 # Table: ville 
@@ -36746,10 +36752,55 @@ INSERT INTO ville(code_insee,code_postal,nom_ville) VALUES ("21194","21700",'COR
 INSERT INTO ville(code_insee,code_postal,nom_ville) VALUES ("60605","60210",'SARNOIS');
 INSERT INTO ville(code_insee,code_postal,nom_ville) VALUES ("72202","72260",'MONHOUDOU');
 
-
-
+#------------------------------------------------------------
+# Table: site_Isen 
+#------------------------------------------------------------
 
 INSERT INTO site_Isen(nom_du_site, code_insee) VALUES ("ISEN Brest","29019");
 INSERT INTO site_Isen(nom_du_site, code_insee) VALUES ("ISEN Caen","14118");
 INSERT INTO site_Isen(nom_du_site, code_insee) VALUES ("ISEN Rennes","35238");
 INSERT INTO site_Isen(nom_du_site, code_insee) VALUES ("ISEN Nantes","44109");
+
+#------------------------------------------------------------
+# Table: trajet 
+#------------------------------------------------------------
+
+INSERT INTO trajet(nombre_place, nombre_place_restante, prix, adresse, date_depart,
+date_arrivee, debute_isen, code_insee, nom_du_site, pseudonyme) 
+VALUES (4,4,10,"4 Grand Rue", "2021-06-23 18:30:00", "2021-06-23 17:00:00",
+TRUE, "29026", "ISEN Brest", "x");
+
+INSERT INTO trajet(nombre_place, nombre_place_restante, prix, adresse, date_depart,
+date_arrivee, debute_isen, code_insee, nom_du_site, pseudonyme) 
+VALUES (4,4,10,"4 Grand Rue", "2021-06-24 18:30:00", "2021-06-23 17:00:00",
+TRUE, "29026", "ISEN Brest", "x");
+
+INSERT INTO trajet(nombre_place, nombre_place_restante, prix, adresse, date_depart,
+date_arrivee, debute_isen, code_insee, nom_du_site, pseudonyme) 
+VALUES (4,4,10,"4 Grand Rue", "2021-06-25 18:30:00", "2021-06-23 17:00:00",
+TRUE, "29026", "ISEN Brest", "x");
+
+INSERT INTO trajet(nombre_place, nombre_place_restante, prix, adresse, date_depart,
+date_arrivee, debute_isen, code_insee, nom_du_site, pseudonyme) 
+VALUES (4,4,10,"4 Grand Rue", "2021-06-26 18:30:00", "2021-06-23 17:00:00",
+TRUE, "29026", "ISEN Brest", "x");
+
+INSERT INTO trajet(nombre_place, nombre_place_restante, prix, adresse, date_depart,
+date_arrivee, debute_isen, code_insee, nom_du_site, pseudonyme) 
+VALUES (4,4,10,"4 Grand Rue", "2021-06-23 06:30:00", "2021-06-23 17:00:00",
+FALSE, "29026", "ISEN Brest", "x");
+
+INSERT INTO trajet(nombre_place, nombre_place_restante, prix, adresse, date_depart,
+date_arrivee, debute_isen, code_insee, nom_du_site, pseudonyme) 
+VALUES (4,4,10,"4 Grand Rue", "2021-06-24 06:30:00", "2021-06-23 17:00:00",
+FALSE, "29026", "ISEN Brest", "x");
+
+INSERT INTO trajet(nombre_place, nombre_place_restante, prix, adresse, date_depart,
+date_arrivee, debute_isen, code_insee, nom_du_site, pseudonyme) 
+VALUES (4,4,10,"4 Grand Rue", "2021-06-25 06:30:00", "2021-06-23 17:00:00",
+FALSE, "29026", "ISEN Brest", "x");
+
+INSERT INTO trajet(nombre_place, nombre_place_restante, prix, adresse, date_depart,
+date_arrivee, debute_isen, code_insee, nom_du_site, pseudonyme) 
+VALUES (4,4,10,"4 Grand Rue", "2021-06-26 06:30:00", "2021-06-23 17:00:00",
+FALSE, "29026", "ISEN Brest", "x");

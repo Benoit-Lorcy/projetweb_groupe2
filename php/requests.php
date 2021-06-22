@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] != "GET")
 
 $request = substr($_SERVER["PATH_INFO"], 1);
 $request = explode("/", $request);
-
+error_log(strval($request));
 $ressource = array_shift($request);
 $apiVersion = array_shift($request);
 $requestRessource = array_shift($request);
@@ -52,27 +52,8 @@ $data = null;
 switch ($requestRessource) {
     // Ressource "utilisateurs"
     case "utilisateurs":
-        // Requête des materiels associé a un utilisateur
-        if (isset($request[0]) && isset($request[1]) && $request[1] == "materiels")
-            $data = $db->getMaterielsUtilisateur($request[0]);
-        // Requête d'informations sur un utilisateur
-        else if (isset($request[0]))
-            $data = $db->getUtilisateur($request[0]);
-        // Requête de tous les utilisateurs
-        else
-            $data = $db->getUtilisateurs();
-        break;
-    // Ressource "materiels"
-    case "materiels":
-        // Recherche pour savoir un un materiel existe
-        if (isset($_GET["search"]))
-            $data = $db->search($_GET["search"]);
-        // Requête d'informations sur un materiel
-        else if (isset($request[0]))
-            $data = $db->getMateriel($request[0]);
-        // Requêtes de tous les materiels
-        else
-            $data = $db->getMateriels();
+        error_log($request);
+        error_log("pog");
         break;
     default:
         send_reponse(null, 400);

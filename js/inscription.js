@@ -1,4 +1,4 @@
-function form_inscription() {
+/*function form_inscription() {
 
     let prenom = $("#prenom").val();
     let nom = $("#nom").val();
@@ -19,9 +19,8 @@ function form_inscription() {
             prenom: prenom, nom: nom,
             mail: mail, pseudo: pseudo, telephone: telephone, mot_de_passe: mot_de_passe
         })
-    })
-        .then(response => console.log(response));
+    }).then(response => console.log(response));
 
     alert("uwu");
     return false;
-}
+}*/
