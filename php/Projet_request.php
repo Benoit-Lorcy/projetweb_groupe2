@@ -72,6 +72,22 @@ VALUES ($val_place, $val_place, $val_prix, $adresse, $date_debut, $date_fin, $de
     
     echo json_encode($request_6);
   }
+  
+       //en plus
+  //request 7 : trajet le moins cher
+  function sort_min_price(bool $depart )
+    $request_7 = fetch('SELECT * FROM trajet WHERE debute_isen==$depart ORDER BY prix ASC;');
+    
+    echo json_encode($request_7);
+  }
+
+
+  //request 8 : recherche tous les trajets proposés par un utilisateur
+  function seek_travel_by_user( varchar $val_pseudo )
+    $request_8 = fetch('SELECT * FROM trajet INNER JOIN utilisateur ON trajet.pseudonyme=utilisateur.pseudonyme WHERE utilisateur.pseudonyme==$val_pseudo;');
+
+    echo json_encode($request_8);
+  }
 
     $phrase_request = 'SELECT prenom, nom FROM user';
     $statement = $db->prepare($phrase_request);
