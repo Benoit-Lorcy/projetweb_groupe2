@@ -3,7 +3,7 @@
 #------------------------------------------------------------
 
 INSERT INTO utilisateur(pseudonyme,nom,prenom,email,mot_de_passe,numero_telelephone) 
-VALUES ("x","x","x","x","x@isen.fr","02 98 03 84 00")
+VALUES ("x","x","x","x","x@isen.fr","02 98 03 84 00");
 
 #------------------------------------------------------------
 # Table: ville 
