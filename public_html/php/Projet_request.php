@@ -48,7 +48,7 @@ VALUES ($val_place, $val_place, $val_prix, $adresse, $date_debut, $date_fin, $de
   $ind_test=0;
   
   while( $ind<=10 ){
-    if( fetch(SELECT nombre_place_restante FROM trajet WHERE $id_trajet==$ind_test)>0 ){
+    if( fetch(SELECT nombre_place_restante FROM trajet WHERE id_trajet==$ind_test)>0 ){
       $request_4 = fetch('SELECT * FROM trajet WHERE AND debute_isen==$depart;');
       
       $ind++;
