@@ -29,7 +29,7 @@
   
     //request 2 : vérifie les données d'un utilisateur
   function check_connect(varchar $val_pseudo, varchar $val_mot_de_passe)
-    $request_2 = fetch('SELECT * FROM utilisateur WHERE pseudonyme==$val_pseudo$ AND mot_de_passe==SHA1($val_mot_de_passe);');
+    $request_2 = fetch('SELECT * FROM utilisateur WHERE pseudonyme==$val_pseudo AND mot_de_passe==SHA1($val_mot_de_passe);');
     
     echo json_encode($request_2);
   }
@@ -62,12 +62,14 @@ VALUES ($val_place, $val_place, $val_prix, $adresse, $date_debut, $date_fin, $de
   //request 5 : recherche un trajet particulier
   function search_travel_by_ID(int $val_id)
     $request_5 = fetch('SELECT * FROM trajet WHERE id_trajet==$val_id;');
+    
     echo json_encode($request_5);
   }
 
   //request 6 : reserve une place pour le trajet
-  function take_a_place(int $val_id)
-    $request_6 = fetch('UPDATE TABLE trajet SET nombre_place_restante -= 1 WHERE id_trajet==$val_id;');
+  function take_place(smallint $nb_place_prise, int $val_id)
+    $request_6 = fetch('UPDATE TABLE trajet SET nombre_place_restante -= $nb_place_prise WHERE id_trajet==$val_id;');
+    
     echo json_encode($request_6);
   }
 
