@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang=fr>
 
 <head>
     <!-- Meta tags -->
@@ -28,35 +28,48 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
     <script src="js/index.js"></script>
+    <script src="js/inscription.js"></script>
 </head>
 
 <body style="background-color: rgb(255, 215, 215);">
     <header></header>
     <div class="position-absolute top-50 start-50 translate-middle" id="allerville">
-        <div class=" card" style="width: 35rem;">
+        <div class="card" style="width: 35rem;">
             <img src="assets/carkey2.png" class="card-img-top" alt="...">
-            <form class="card-body">
+            <form onsubmit="return form_inscription()" class="card-body">
                 <h2 class="card-text p-2 text-center">Création de compte</h2>
-                <div class="mb-3">
-                    <label for="" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="address" placeholder="jean.dubus@isen.fr" required>
+                <div class="row g-3 mb-3">
+                    <div class="col-sm-6">
+                        <label for="prenom" class="form-label">Prénom</label>
+                        <input id="prenom" type="text" class="form-control" placeholder="Jean" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="nom" class="form-label">Nom</label>
+                        <input id="nom" type="text" class="form-control" placeholder="Dubus" required>
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Pseudonyme</label>
-                    <input type="text" class="form-control" id="address" placeholder="Jeanbond42" required>
+                    <label for="mail" class="form-label">Email</label>
+                    <input id="mail" type="email" class="form-control" placeholder="jean.dubus@isen.fr" required>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Numéro de telephone</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    <label for="pseudo" class="form-label">Pseudonyme</label>
+                    <input id="pseudo" type="text" class="form-control" placeholder="Jeanbond42" required>
+                </div>
+                <div class="mb-3">
+                    <label for="telephone" class="form-label">Numéro de telephone</label>
+                    <input id="telephone" type="tel" class="form-control" name="phone" pattern="[0-9]{10}"
                         placeholder="02 34 56 78 91" required>
                 </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Mot de passe</label>
-                    <input type="password" class="form-control" id="address" required>
-                </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Répéter votre mot de passe</label>
-                    <input type="password" class="form-control" id="address" required>
+                <div class="row g-3 mb-3">
+                    <div class="col-sm-6">
+                        <label for="mot_de_passe" class="form-label">Mot de passe</label>
+                        <input id="mot_de_passe" type="password" class="form-control" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="mot_de_passe_verification" class="form-label">Répéter votre mot de passe</label>
+                        <input id="mot_de_passe_verification" type="password" class="form-control" required>
+                    </div>
                 </div>
                 <div class="mb-3 text-center">
                     <button type="submit" style="width: 10rem" class="btn btn-primary m-2">Créer un compte</button>

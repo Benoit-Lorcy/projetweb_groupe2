@@ -16,18 +16,19 @@ class dbConnector {
         unset($db);
     }
 
-    // Envoie tout les utilisateurs
-    public function getUtilisateurs() {
-        $request = "SELECT nom, prenom, mail FROM utilisateur;";
-        $statement = $this->db->prepare($request);
-        $statement->execute();
+    // Confirme que le mot de passe est bien associé a l'utilisateur
+    public function checkUser($pseudo, $password) {
 
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+    }
+
+    // Ajoute un utilisateur
+    public function createUser($mail, $last_name, $password,
+    $phone, $username) {
+        
     }
 
     // Renvoie des informations sur un utilisateur, identifié par son adresse mail
-    public function getUtilisateur($mail) {
+    /*public function getUtilisateur($mail) {
         $request = "SELECT * FROM utilisateur WHERE mail = :mail;";
         $statement = $this->db->prepare($request);
         $statement->bindParam(":mail", $mail, PDO::PARAM_STR, 30);
@@ -89,7 +90,7 @@ class dbConnector {
             default:
                 return null;
         }
-    }
+    }*/
 }
 
 ?>
