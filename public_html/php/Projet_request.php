@@ -66,7 +66,7 @@ VALUES ($val_place, $val_place, $val_prix, $adresse, $date_debut, $date_fin, $de
     echo json_encode($request_5);
   }
 
-  //request 6 : reserve une place pour le trajet
+  //request 6 : reserve une ou plusieurs places pour le trajet
   function take_place(smallint $nb_place_prise, int $val_id)
     $request_6 = fetch('UPDATE TABLE trajet SET nombre_place_restante -= $nb_place_prise WHERE id_trajet==$val_id;');
     
