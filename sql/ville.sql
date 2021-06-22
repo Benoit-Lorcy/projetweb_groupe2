@@ -1,5 +1,5 @@
 #------------------------------------------------------------
-# Table: ville
+# Table: ville 
 #------------------------------------------------------------
 
 INSERT INTO ville(code_insee,code_postal,commune) VALUES ("59416","59190",'MORBECQUE');
