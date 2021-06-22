@@ -60,14 +60,14 @@ VALUES ($val_place, $val_place, $val_prix, $adresse, $date_debut, $date_fin, $de
   }
 
   //request 5 : recherche un trajet particulier
-  function search_travel_by_ID(int val_id)
-    $request_5 = fetch('SELECT * FROM trajet WHERE id_trajet==(val_id);');
+  function search_travel_by_ID(int $val_id)
+    $request_5 = fetch('SELECT * FROM trajet WHERE id_trajet==$val_id;');
     echo json_encode($request_5);
   }
 
   //request 6 : reserve une place pour le trajet
-  function take_a_place()
-    $request_6 = fetch('UPDATE TABLE trajet SET nombre_place_restante -= 1 WHERE id_trajet==(val);');
+  function take_a_place(int $val_id)
+    $request_6 = fetch('UPDATE TABLE trajet SET nombre_place_restante -= 1 WHERE id_trajet==$val_id;');
     echo json_encode($request_6);
   }
 
