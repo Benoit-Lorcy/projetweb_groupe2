@@ -21,15 +21,15 @@
   $data = false;
 
   //request 1 : créer les utilisateurs
-  function user()
-    //$request_1 = fetch('INSERT INTO utilisateur VALUES (val_pseudo, val_nom, val_prenom, val_email, SHA1(val_mot_de_passe) , val_num_tel);');
+  function user(varchar $val_pseudo, varchar $val_nom, varchar $val_prenom, varchar $val_email, varchar $val_mot_de_passe, varchar $val_num_tel)
+    //$request_1 = fetch('INSERT INTO utilisateur VALUES ($val_pseudo, $val_nom, $val_prenom, $val_email, SHA1($val_mot_de_passe) , $val_num_tel);');
     
     //echo json_encode($request_1);
   }
   
     //request 2 : vérifie les données d'un utilisateur
-  function check_connect()
-    $request_2 = fetch('SELECT * FROM utilisateur WHERE pseudonyme==(val_pseudo) AND mot_de_passe==SHA1(val_mot_de_passe);');
+  function check_connect(varchar $val_pseudo, varchar $val_mot_de_passe)
+    $request_2 = fetch('SELECT * FROM utilisateur WHERE pseudonyme==$val_pseudo$ AND mot_de_passe==SHA1($val_mot_de_passe);');
     
     echo json_encode($request_2);
   }
@@ -44,7 +44,17 @@ VALUES ($val_place, $val_place, $val_prix, $adresse, $date_debut, $date_fin, $de
 
   //request 4 : recherche de trajets
   function search_travel(bool $depart)
-    $request_4 = fetch('SELECT * FROM trajet WHERE nombre_place_restante>0 AND debute_isen==$depart AND id_trajet<=10;');
+  $ind=0;
+  $ind_test=0;
+  
+  while( $ind<=10 ){
+    if( fetch(SELECT nombre_place_restante FROM trajet WHERE $id_trajet==$ind_test)>0 ){
+      $request_4 = fetch('SELECT * FROM trajet WHERE AND debute_isen==$depart;');
+      
+      $ind++;
+    }
+    
+    $ind_test++;
     
     echo json_encode($request_4);
   }
