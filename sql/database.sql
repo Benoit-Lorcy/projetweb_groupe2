@@ -13,7 +13,7 @@ CREATE TABLE utilisateur(
         prenom             Varchar (100) NOT NULL ,
         email              Varchar (100) NOT NULL ,
         mot_de_passe       Varchar (100) NOT NULL ,
-        numero_telelephone Varchar (50) NOT NULL ,
+        numero_telelephone Varchar (50) NOT NULL
 	,CONSTRAINT utilisateur_PK PRIMARY KEY (pseudonyme)
 )ENGINE=InnoDB;
 
