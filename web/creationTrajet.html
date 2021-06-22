@@ -29,19 +29,20 @@
         crossorigin="anonymous"></script>
 
     <script src="js/index.js"></script>
+
 </head>
 
 <body style="background-color: rgb(255, 215, 215);">
     <header></header>
     <div class="position-absolute top-50 start-50 translate-middle" id="main">
         <div class="card" style="width: 35rem;">
-            <img src="assets/suitcase.png" class="card-img-top" alt="...">
+            <img src="assets/oldcar.png" class="card-img-top" alt="...">
             <div class="card-body text-center">
-                <h2 class="card-text p-2">Trouver un trajet</h2>
-                <button class="btn btn-primary m-2" style="width: 10rem" onclick="afficher('allerville')">Partir d'un
-                    ISEN</button>
-                <button class="btn btn-primary m-2" style="width: 10rem" onclick="afficher('allerisen')">Aller vers un
-                    ISEN</button>
+                <h2 class="card-text p-2">Proposer un trajet</h2>
+                <button class="btn btn-primary m-2" style="width: 13rem" onclick="afficher('allerville')">Conduire
+                    vers un ISEN</button>
+                <button class="btn btn-primary m-2" style="width: 13rem" onclick="afficher('allerisen')">Conduire
+                    depuis un ISEN</button>
             </div>
         </div>
     </div>
@@ -50,11 +51,12 @@
             <button class="btn btn-secondary m-2" style=" position: fixed;" onclick="afficher('main')"><i
                     id="popup-back" data-ref="" class="fa fa-chevron-left button"
                     style="visibility: visible;"></i></button>
-            <img src="assets/suitcaseSlim.png" class="card-img-top" alt="...">
+            <img src="assets/oldcarSlim.png" class="card-img-top" alt="...">
             <form class="card-body ">
-                <h2 class="card-text p-2 text-center">Aller vers un isen</h2>
+                <h2 class="card-text p-2 text-center">Conduire
+                    vers un ISEN</h2>
                 <div class="mb-3">
-                    <label for="" class="form-label">Ville de départ</label>
+                    <label for="" class="form-label">Addresse de départ</label>
                     <input type="text" class="form-control" id="address" placeholder="ex: Brest" required>
                 </div>
                 <div class="mb-3">
@@ -67,11 +69,25 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Date de départ</label>
-                    <input type="date" class="form-control" id="address" required="">
+                    <label for="" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" required="">
+                </div>
+                <div class="row g-3 mb-3">
+                    <div class="col-sm-6">
+                        <label for="" class="form-label">Heure de départ</label>
+                        <input type="time" class="form-control" id="time1" required="">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="" class="form-label">Heure d'arrivée</label>
+                        <input type="time" class="form-control" id="time2" required="">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Prix</label>
+                    <input type="text" class="form-control" id="prix" required="">
                 </div>
                 <div class="mb-3 text-center">
-                    <button type="submit" style="width: 10rem" class="btn btn-primary m-2">Rechercher</button>
+                    <button type="submit" style="width: 10rem" class="btn btn-primary m-2">Valider</button>
                 </div>
             </form>
         </div>
@@ -81,9 +97,10 @@
             <button class="btn btn-secondary m-2" style=" position: fixed;" onclick="afficher('main')"><i
                     id="popup-back" data-ref="" class="fa fa-chevron-left button"
                     style="visibility: visible;"></i></button>
-            <img src="assets/suitcaseSlim.png" class="card-img-top" alt="...">
+            <img src="assets/oldcarSlim.png" class="card-img-top" alt="...">
             <form class="card-body ">
-                <h2 class="card-text p-2 text-center">Partir d'un ISEN</h2>
+                <h2 class="card-text p-2 text-center">Conduire
+                    depuis un ISEN</h2>
                 <div class="mb-3">
                     <label for="" class="form-label">Site de départ</label>
                     <select class="form-select" aria-label="Default select example">
@@ -94,15 +111,29 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Ville d'arrivée</label>
+                    <label for="" class="form-label">Addresse d'arrivée</label>
                     <input type="text" class="form-control" id="address" placeholder="ex: Brest" required>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Date de départ</label>
-                    <input type="date" class="form-control" id="address" required="">
+                    <label for="" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" required="">
+                </div>
+                <div class="row g-3 mb-3">
+                    <div class="col-sm-6">
+                        <label for="" class="form-label">Heure de départ</label>
+                        <input type="time" class="form-control" id="time1" required="">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="" class="form-label">Heure d'arrivée</label>
+                        <input type="time" class="form-control" id="time2" required="">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Prix</label>
+                    <input type="text" class="form-control" id="prix" required="">
                 </div>
                 <div class="mb-3 text-center">
-                    <button type="submit" style="width: 10rem" class="btn btn-primary m-2">Rechercher</button>
+                    <button type="submit" style="width: 10rem" class="btn btn-primary m-2">Valider</button>
                 </div>
             </form>
         </div>

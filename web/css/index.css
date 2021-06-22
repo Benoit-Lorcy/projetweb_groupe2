@@ -1,0 +1,11 @@
+@media screen and (max-width: 640px) {
+    .card {
+      width: 20em!important;
+    }
+}
+
+.form-label {
+    margin: 0!important;
+}
+
+
