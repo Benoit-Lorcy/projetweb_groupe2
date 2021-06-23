@@ -42,7 +42,7 @@ function form_debut_isen() {
 }
 
 //Affiche le tableau grâce a l'url généré
-function creation_trajet(url) {
+function printTrajets(url) {
     console.log(url)
     fetch(url, { method: "GET" })
         .then(data => data.json())
@@ -74,3 +74,54 @@ function creation_trajet(url) {
         });
 }
 
+//Permet de formatter la date pour l'afficher dans le tableau
+function formatDate(date2) {
+    let date = new Date(date2)
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear() + "  " + strTime;
+}
+
+
+function validation(id) {
+    console.log(`api/v1/trajet?id=${id}`)
+    fetch(`api/v1/trajet?id=${id}`, { method: "GET" })
+        .then(data => data.json())
+        .then(data => {
+            if (data == "null") {
+                alert("Pas de trajet correspondant");
+                return false;
+            }
+            data = data[0];
+            console.log(data);
+            afficher("validation");
+            $("#validation-data").html(
+                `<tr><th scope="row">Heure de départ</th><td>${formatDate(data.date_depart)}</td></tr>
+                <tr><th scope="row">Heure de d'arrivée</th><td>${formatDate(data.date_arrivee)}</td></tr>
+                <tr><th scope="row">Lieu de départ</th><td>${data.debute_isen == "1" ? data.nom_du_site : data.nom_ville}</td></tr>
+                <tr><th scope="row">Lieu de d'arrivée</th><td>${data.debute_isen == "0" ? data.nom_du_site : data.nom_ville}</td></tr>
+                <tr><th scope="row">Places Restantes</th><td>${data.nombre_place_restante}</td></tr>
+                <tr><th scope="row">Prix</th><td>${data.prix}</td></tr>`
+            );
+            $("#validation-button").html(
+                `<button class="btn btn-primary m-2" onclick="${"places(" + data.id_trajet + ",1)"}">Valider</button>`
+            )
+        });
+}
+
+function places(id, place) {
+    console.log(`api/v1/update_trajet?id=${id}&place=${place}`)
+    fetch(`api/v1/update_trajet?id=${id}&place=${place}`, { method: "GET" })
+        .then(data => {
+            $("#validation-button").html(
+                `<button class="btn btn-primary m-2" onclick="afficher('main')">Retour</button>`
+            )
+            alert("Votre trajet a bien été reservé")
+            return false;
+        })
+}

@@ -94,7 +94,7 @@ class dbConnector {
         return true;
     }
 
-    public function addTrajet($debut_isen, $ville, $site_isen, $date_depart, $date_arrivee, $prix, $place){
+    /*public function addTrajet($debut_isen, $ville, $site_isen, $date_depart, $date_arrivee, $prix, $place){
 
         try {
             $request = "INSERT INTO trajet(nombre_place, nombre_place_restante, prix, adresse, date_depart,
@@ -116,7 +116,7 @@ class dbConnector {
             return false;
         }
         return true;
-    }
+    }*/
 }
 
 ?>
