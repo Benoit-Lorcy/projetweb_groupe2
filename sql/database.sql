@@ -4,7 +4,7 @@
 
 
 #------------------------------------------------------------
-# Table: utilisateur 
+# Table: utilisateur
 #------------------------------------------------------------
 
 CREATE TABLE utilisateur(
@@ -29,6 +29,7 @@ CREATE TABLE ville(
 	,CONSTRAINT ville_PK PRIMARY KEY (code_insee)
 )ENGINE=InnoDB;
 
+
 #------------------------------------------------------------
 # Table: site_Isen
 #------------------------------------------------------------
@@ -40,6 +41,7 @@ CREATE TABLE site_Isen(
 
 	,CONSTRAINT site_Isen_ville_FK FOREIGN KEY (code_insee) REFERENCES ville(code_insee)
 )ENGINE=InnoDB;
+
 
 #------------------------------------------------------------
 # Table: trajet
@@ -54,15 +56,16 @@ CREATE TABLE trajet(
         date_depart           Datetime NOT NULL ,
         date_arrivee          Datetime NOT NULL ,
         debute_isen           Bool NOT NULL ,
-        code_insee            Varchar (25) NOT NULL ,
         nom_du_site           Varchar (50) NOT NULL ,
-        pseudonyme            Varchar (50) NOT NULL
+        pseudonyme            Varchar (50) NOT NULL ,
+        code_insee            Varchar (25) NOT NULL
 	,CONSTRAINT trajet_PK PRIMARY KEY (id_trajet)
-	,CONSTRAINT trajet_ville_FK FOREIGN KEY (code_insee) REFERENCES ville(code_insee)
-	,CONSTRAINT trajet_site_Isen0_FK FOREIGN KEY (nom_du_site) REFERENCES site_Isen(nom_du_site)
-	,CONSTRAINT trajet_utilisateur1_FK FOREIGN KEY (pseudonyme) REFERENCES utilisateur(pseudonyme)
+
+	,CONSTRAINT trajet_site_Isen_FK FOREIGN KEY (nom_du_site) REFERENCES site_Isen(nom_du_site)
+	,CONSTRAINT trajet_utilisateur0_FK FOREIGN KEY (pseudonyme) REFERENCES utilisateur(pseudonyme)
+	,CONSTRAINT trajet_ville1_FK FOREIGN KEY (code_insee) REFERENCES ville(code_insee)
 )ENGINE=InnoDB;
- 
+
 
 #------------------------------------------------------------
 # Table: se deplace
@@ -72,6 +75,7 @@ CREATE TABLE se_deplace(
         id_trajet  Int NOT NULL ,
         pseudonyme Varchar (50) NOT NULL
 	,CONSTRAINT se_deplace_PK PRIMARY KEY (id_trajet,pseudonyme)
+
 	,CONSTRAINT se_deplace_trajet_FK FOREIGN KEY (id_trajet) REFERENCES trajet(id_trajet)
 	,CONSTRAINT se_deplace_utilisateur0_FK FOREIGN KEY (pseudonyme) REFERENCES utilisateur(pseudonyme)
 )ENGINE=InnoDB;
