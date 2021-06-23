@@ -34,95 +34,19 @@
 <body style="background-color: rgb(255, 215, 215);">
     <header></header>
     <div class="position-absolute top-50 start-50 translate-middle" id="main">
-        <div class="card p-2" style="width: 70rem;">
-            <h2>Resultat de votre recherche</h2>
-            <h5>n trajet disponibles</h5>
-            <table class="table table-bordered" style="margin: 0px;">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Site de départ</th>
-                        <th scope="col">Site de d'arrivé</th>
-                        <th scope="col">Heure de départ</th>
-                        <th scope="col">Heure de d'arrivée</th>
-                        <th scope="col">Prix</th>
-                        <th scope="col">Choisir</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Brest</td>
-                        <td>Brest</td>
-                        <td>12h30</td>
-                        <td>12h30</td>
-                        <td>12.40€</td>
-                        <td><button class="btn btn-primary p-0 px-1">Choisir</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Brest</td>
-                        <td>Brest</td>
-                        <td>12h30</td>
-                        <td>12h30</td>
-                        <td>12.40€</td>
-                        <td><button class="btn btn-primary p-0 px-1">Choisir</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Brest</td>
-                        <td>Brest</td>
-                        <td>12h30</td>
-                        <td>12h30</td>
-                        <td>12.40€</td>
-                        <td><button class="btn btn-primary p-0 px-1">Choisir</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">6</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">7</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">8</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">9</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">10</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-
-
-                </tbody>
-            </table>
+        <div class="card" style="width: 35rem;">
+            <img src="assets/comptes.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h2 class="card-text p-2">Validation</h2>
+                <table class="table table-bordered" style="margin: 0px;">
+                    <tbody id="validation-data">
+                        <tr>
+                            <th scope="row">${i + 1}</th>
+                            <td>${element.prix}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <footer></footer>

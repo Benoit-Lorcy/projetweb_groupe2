@@ -16,80 +16,82 @@ class dbConnector {
         unset($db);
     }
 
-    // Confirme que le mot de passe est bien associé a l'utilisateur
-    public function checkUser($pseudo, $password) {
+    // Récupère les sites isen
+    public function getSiteIsen() {
+        $request = "SELECT nom_du_site FROM site_Isen;";
+        $statement = $this->db->prepare($request);
+        $statement->execute();
 
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 
     // Ajoute un utilisateur
-    public function createUser($mail, $last_name, $password, $phone, $username) {
+    public function getTrajet($debute_isen,$ville,$site_isen,$date_depart) {
+        //var_dump(array($debute_isen,$ville,$site_isen,$date_depart));
+        try {
+            $request = "SELECT * FROM trajet t 
+            JOIN ville v ON v.code_insee = t.code_insee
+            WHERE t.debute_isen = :debute_isen
+            AND v.nom_ville = :ville
+            AND t.nom_du_site = :site_isen
+            AND CAST(t.date_depart AS DATE) >= :date_depart;
+            AND t.nombre_place_restante > 0";
 
-    }
+            $debute_isen = ($debute_isen == "true") ? 1 : 0;
+            $statement = $this->db->prepare($request);
+            $statement->bindParam(":debute_isen", $debute_isen, PDO::PARAM_INT);
+            $statement->bindParam(":ville", $ville, PDO::PARAM_STR, 30);
+            $statement->bindParam(":site_isen", $site_isen, PDO::PARAM_STR, 30);
+            $statement->bindParam(":date_depart", $date_depart, PDO::PARAM_STR, 30);
+            $statement->execute();
 
-    // Renvoie des informations sur un utilisateur, identifié par son adresse mail
-    /*public function getUtilisateur($mail) {
-        $request = "SELECT * FROM utilisateur WHERE mail = :mail;";
-        $statement = $this->db->prepare($request);
-        $statement->bindParam(":mail", $mail, PDO::PARAM_STR, 30);
-        $statement->execute();
-
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        return count($result) > 0 ? $result[0] : null;
-    }
-
-    // Renvoie tout les materiels
-    public function getMateriels() {
-        $request = "SELECT nom FROM materiel;";
-        $statement = $this->db->prepare($request);
-        $statement->execute();
-
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
-    }
-
-    // Informations sur un matériel identifié par son nom 
-    public function getMateriel($nom) {
-        $nom = str_replace("'", "", $nom);
-
-        $request = "SELECT * FROM materiel WHERE nom = :nom";
-        $statement = $this->db->prepare($request);
-        $statement->bindParam(":nom", $nom, PDO::PARAM_STR, 50);
-        $statement->execute();
-
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        return count($result) > 0 ? $result[0] : null;
-    }
-
-    // Tout les materiels associés a un utilisateur
-    public function getMaterielsUtilisateur($mail) {
-        $request = "SELECT a.num_serie, a.date_association, e.nom, e.caracteristique, e.date_fabrication
-                    FROM materiel e JOIN association a ON e.nom = a.nom
-                    WHERE a.mail = :mail";
-        $statement = $this->db->prepare($request);
-        $statement->bindParam(":mail", $mail, PDO::PARAM_STR, 30);
-        $statement->execute();
-
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
-    }
-
-    // Permet de chercher si un enregistrement existe dans la base de donnée 
-    // en fonction d'une valeur
-    public function search($searchValue) {
-        switch ($searchValue) {
-            case "num_serie":
-                $numSerie = $_GET["num"];
-                $request = "SELECT nom FROM association WHERE num_serie = :num_serie;";
-                $statement = $this->db->prepare($request);
-                $statement->bindParam(":num_serie", $numSerie, PDO::PARAM_STR, 30);
-                $statement->execute();
-
-                return !empty($statement->fetchAll(PDO::FETCH_ASSOC));
-            default:
-                return null;
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            //var_dump($result)
+            if (empty($result)) 
+            $result = "null";
+            return $result;
+        } catch (PDOException $e) {
+            return $e;
         }
-    }*/
+    }
+
+    public function getTrajetByID($id) {
+        //var_dump(array($debute_isen,$ville,$site_isen,$date_depart));
+        try {
+            $request = "SELECT * FROM trajet t 
+            JOIN ville v ON v.code_insee = t.code_insee
+            WHERE t.id_trajet = :id";
+
+            $statement = $this->db->prepare($request);
+            $statement->bindParam(":id", $id, PDO::PARAM_INT);
+            $statement->execute();
+
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            if (empty($result)) 
+            $result = "null";
+            return $result;
+        } catch (PDOException $e) {
+            return $e;
+        }
+    }
+
+    public function addPassanger($trip_id, $passenger) {
+        try {
+            $request = "UPDATE TABLE trajet t
+            SET t.nombre_place_restante -= :passenger
+            WHERE t.id_trajet = :trip_id;";
+            
+            $statement = $this->db->prepare($request);
+            $statement->bindParam(":trip_id", $trip_id, PDO::PARAM_INT);
+            $statement->bindParam(":passenger", $passenger, PDO::PARAM_STR, 25);
+            $statement->execute();
+        } catch (PDOException $e) {
+            error_log("Request error: " . $e->getMessage());
+            return false;
+        }
+        return true;
+    }
 }
 
 ?>

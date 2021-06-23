@@ -1,7 +1,7 @@
 RewriteEngine On
-RewriteRule ^api/v1(.*) php/requests.php/%{REQUEST_URI} [QSA]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^api/v1(.*) php/requests.php/$1 [QSA]
 RewriteRule ^([^\.]+)$ html/$1.html [NC,L]
 
 DirectoryIndex html/recherche_trajet.html

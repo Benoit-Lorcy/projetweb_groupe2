@@ -1,13 +1,14 @@
-[Tue Jun 22 21:43:52.589307 2021] [php7:notice] [pid 19314] [client 127.0.0.1:33770] aaa
-[Tue Jun 22 21:43:56.767402 2021] [php7:notice] [pid 19313] [client 127.0.0.1:33774] aaa
-[Tue Jun 22 21:44:01.330929 2021] [php7:notice] [pid 19315] [client 127.0.0.1:33778] aaa
-[Tue Jun 22 21:44:06.790205 2021] [php7:notice] [pid 19320] [client 127.0.0.1:33782] aaa
-[Tue Jun 22 21:44:52.649747 2021] [php7:notice] [pid 19314] [client 127.0.0.1:33770] Request errorSQLSTATE[HY000] [2002] Connection timed out
-[Tue Jun 22 21:44:56.827018 2021] [php7:notice] [pid 19313] [client 127.0.0.1:33774] Request errorSQLSTATE[HY000] [2002] Connection timed out
-[Tue Jun 22 21:45:01.389836 2021] [php7:notice] [pid 19315] [client 127.0.0.1:33778] Request errorSQLSTATE[HY000] [2002] Connection timed out
-[Tue Jun 22 21:45:06.850042 2021] [php7:notice] [pid 19320] [client 127.0.0.1:33782] Request errorSQLSTATE[HY000] [2002] Connection timed out
-[Tue Jun 22 21:59:18.377761 2021] [php7:warn] [pid 29589] [client 127.0.0.1:33950] PHP Warning:  error_log() expects parameter 1 to be string, array given in /var/vhosts/projetweb_groupe2/web/php/requests.php on line 31
-[Tue Jun 22 22:00:18.437701 2021] [php7:notice] [pid 29589] [client 127.0.0.1:33950] Request errorSQLSTATE[HY000] [2002] Connection timed out
-[Tue Jun 22 22:02:35.174763 2021] [php7:warn] [pid 19315] [client 127.0.0.1:33976] PHP Warning:  error_log() expects parameter 1 to be string, array given in /var/vhosts/projetweb_groupe2/web/php/requests.php on line 31
-[Tue Jun 22 22:03:37.023095 2021] [php7:notice] [pid 19312] [client 127.0.0.1:34066] PHP Notice:  Array to string conversion in /var/vhosts/projetweb_groupe2/web/php/requests.php on line 31
-[Tue Jun 22 22:03:37.023125 2021] [php7:notice] [pid 19312] [client 127.0.0.1:34066] Array
+[Wed Jun 23 13:15:53.195048 2021] [php7:error] [pid 1148] [client 127.0.0.1:52450] PHP Parse error:  syntax error, unexpected '$statement' (T_VARIABLE) in /var/vhosts/projetweb_groupe2/web/php/database.php on line 40
+[Wed Jun 23 13:16:53.136323 2021] [php7:warn] [pid 15106] [client 127.0.0.1:52462] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/vhosts/projetweb_groupe2/web/php/database.php on line 45
+[Wed Jun 23 13:17:14.527915 2021] [php7:warn] [pid 1146] [client 127.0.0.1:52470] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/vhosts/projetweb_groupe2/web/php/database.php on line 45
+[Wed Jun 23 13:17:26.870368 2021] [php7:notice] [pid 1147] [client 127.0.0.1:52474] PHP Notice:  Undefined variable: debut_isen in /var/vhosts/projetweb_groupe2/web/php/database.php on line 31
+[Wed Jun 23 13:17:26.870423 2021] [php7:warn] [pid 1147] [client 127.0.0.1:52474] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/vhosts/projetweb_groupe2/web/php/database.php on line 45
+[Wed Jun 23 13:18:01.916660 2021] [php7:warn] [pid 1145] [client 127.0.0.1:52480] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/vhosts/projetweb_groupe2/web/php/database.php on line 45
+[Wed Jun 23 13:18:03.483780 2021] [php7:warn] [pid 1145] [client 127.0.0.1:52480] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/vhosts/projetweb_groupe2/web/php/database.php on line 45
+[Wed Jun 23 13:18:17.362741 2021] [php7:warn] [pid 4272] [client 127.0.0.1:52486] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/vhosts/projetweb_groupe2/web/php/database.php on line 45
+[Wed Jun 23 13:19:28.913851 2021] [php7:warn] [pid 1148] [client 127.0.0.1:52490] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/vhosts/projetweb_groupe2/web/php/database.php on line 45
+[Wed Jun 23 13:21:34.403025 2021] [php7:warn] [pid 1143] [client 127.0.0.1:52510] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/vhosts/projetweb_groupe2/web/php/database.php on line 47
+[Wed Jun 23 13:22:23.599968 2021] [php7:warn] [pid 15106] [client 127.0.0.1:52524] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /var/vhosts/projetweb_groupe2/web/php/database.php on line 47
+[Wed Jun 23 13:23:49.981930 2021] [php7:error] [pid 1147] [client 127.0.0.1:52534] PHP Parse error:  syntax error, unexpected 'AND' (T_LOGICAL_AND) in /var/vhosts/projetweb_groupe2/web/php/database.php on line 36
+[Wed Jun 23 13:23:52.132145 2021] [php7:error] [pid 1145] [client 127.0.0.1:52536] PHP Parse error:  syntax error, unexpected 'AND' (T_LOGICAL_AND) in /var/vhosts/projetweb_groupe2/web/php/database.php on line 36
+[Wed Jun 23 13:24:17.013422 2021] [php7:error] [pid 1148] [client 127.0.0.1:52544] PHP Parse error:  syntax error, unexpected '=' in /var/vhosts/projetweb_groupe2/web/php/database.php on line 36
