@@ -108,7 +108,17 @@ function validation(id) {
                 <tr><th scope="row">Places Restantes</th><td>${data.nombre_place_restante}</td></tr>
                 <tr><th scope="row">Prix</th><td>${data.prix}</td></tr>`
             );
+            $("#validation-button").html(
+                `<button class="btn btn-primary m-2" onclick="${"places(" + element.id_trajet + ",1)"}">Choisir</button>`
+            )
         });
 }
 
-function places(url) { }
+function places(id, place) {
+    console.log(`api/v1/trajet?id=${id}&place=${place}`)
+    fetch(`api/v1/trajet?id=${id}`, { method: "GET" })
+        .then(data => {
+            location.reload();
+            return false;
+        })
+}

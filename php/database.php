@@ -84,7 +84,7 @@ class dbConnector {
             
             $statement = $this->db->prepare($request);
             $statement->bindParam(":trip_id", $trip_id, PDO::PARAM_INT);
-            $statement->bindParam(":passenger", $passenger, PDO::PARAM_STR, 25);
+            $statement->bindParam(":passenger", $passenger, PDO::PARAM_INT);
             $statement->execute();
         } catch (PDOException $e) {
             error_log("Request error: " . $e->getMessage());
