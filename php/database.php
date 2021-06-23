@@ -77,16 +77,41 @@ class dbConnector {
     }
 
     public function addPassanger($trip_id, $passenger) {
+        //var_dump(array($trip_id, $passenger));
         try {
-            $request = "UPDATE TABLE trajet t
-            SET t.nombre_place_restante -= :passenger
-            WHERE t.id_trajet = :trip_id;";
+            $request = "UPDATE trajet
+            SET nombre_place_restante = nombre_place_restante - 1
+            WHERE id_trajet = :trip_id;";
             
             $statement = $this->db->prepare($request);
             $statement->bindParam(":trip_id", $trip_id, PDO::PARAM_INT);
-            $statement->bindParam(":passenger", $passenger, PDO::PARAM_INT);
+            //$statement->bindParam(":passenger", $passenger, PDO::PARAM_INT);
             $statement->execute();
         } catch (PDOException $e) {
+            error_log("Request error: " . $e->getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    public function addTrajet($debut_isen, $ville, $site_isen, $date_depart, $date_arrivee, $prix, $place){
+
+        try {
+            $request = "INSERT INTO trajet(nombre_place, nombre_place_restante, prix, adresse, date_depart,
+            date_arrivee, debute_isen, code_insee, nom_du_site, pseudonyme) 
+            VALUES (:place,:place,:prix,'',:date_depart, :date_arrivee, :debut_isen, 
+            (SELECT code_insee FROM ville WHERE nom_ville = :ville) , :site_isen, 'x');"
+
+            $statement = $this->db->prepare($request);
+
+            $statement->bindParam(":place", $place, PDO::PARAM_INT);
+            $statement->bindParam(":prix", $prix, PDO::PARAM_INT);
+            $statement->bindParam(":date_depart", $date_depart, PDO::DATE);
+            $statement->bindParam(":date_arrivee", $date_arrivee, PDO::DATE);
+            $statement->bindParam(":debut_isen", $debut_isen, PDO::PARAM_STR, 100);
+            $statement->bindParam(":site_isen", $site_isen, PDO::PARAM_STR, 100);
+            $statement->execute();
+        }catch (PDOException $e) {
             error_log("Request error: " . $e->getMessage());
             return false;
         }

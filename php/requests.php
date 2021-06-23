@@ -59,12 +59,20 @@ switch ($ressource) {
     case "trajet": 
         if (isset($_GET["debute_isen"]) && isset($_GET["ville"]) && isset($_GET["site"]) && isset($_GET["date"]))
             $data = $db->getTrajet($_GET["debute_isen"],$_GET["ville"],$_GET["site"],$_GET["date"]); 
-        else if (isset($_GET["id"]) && isset($_GET["place"]))
-            $data = $db->addPassanger($_GET["debute_isen"],$_GET["ville"],$_GET["site"],$_GET["date"]);
         else if (isset($_GET["id"]))
             $data = $db->getTrajetByID($_GET["id"]); 
         else
             send_response(null, 400);
+        break;
+    case "update_trajet":
+        if (isset($_GET["id"]) && isset($_GET["place"]))
+            $data = $db->addPassanger($_GET["id"],$_GET["place"]);
+        break;
+        //addTraject?debut_isen=${debut_isen}&ville=${ville}&site=${site}&date_depart=${date_depart}&date_arrivée=${date_arrivée}&prix=${prix}&place=${place}
+    case "addTraject":
+        if (isset($_GET["debut_isen"]) && isset($_GET["ville"])&& isset($_GET["site"])&& isset($_GET["date_depart"])&& isset($_GET["date_arrivee"])
+                && isset($_GET["prix"])&& isset($_GET["place"]))
+            $data = $db->addTrajet($_GET["debut_isen"],  $_GET["ville"], ($_GET["site"]),  ($_GET["date_depart"]), ($_GET["date_arrivee"]),  ($_GET["prix"]),   ($_GET["place"]));
         break;
     default:
         send_response($ressource, 400);

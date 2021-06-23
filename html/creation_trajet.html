@@ -41,9 +41,9 @@
             <div class="card-body text-center">
                 <h2 class="card-text p-2">Proposer un trajet</h2>
                 <button class="btn btn-primary m-2" style="width: 13rem" onclick="afficher('allerville')">Conduire
-                    vers un ISEN</button>
-                <button class="btn btn-primary m-2" style="width: 13rem" onclick="afficher('allerisen')">Conduire
                     depuis un ISEN</button>
+                <button class="btn btn-primary m-2" style="width: 13rem" onclick="afficher('allerisen')">Conduire
+                    vers un ISEN</button>
             </div>
         </div>
     </div>
@@ -53,39 +53,42 @@
                     id="popup-back" data-ref="" class="fa fa-chevron-left button"
                     style="visibility: visible;"></i></button>
             <img src="assets/oldcarSlim.png" class="card-img-top" alt="...">
-            <form class="card-body ">
+            <form class="card-body" onsubmit="return form_debut_ville()">
                 <h2 class="card-text p-2 text-center">Conduire
                     vers un ISEN</h2>
                 <div class="mb-3">
-                    <label for="" class="form-label">Addresse de départ</label>
-                    <input type="text" class="form-control" id="address" placeholder="ex: Brest" required>
+                    <label for="ville-address" class="form-label">Ville de départ</label>
+                    <input id="ville-address" type="text" class="form-control" placeholder="ex: Brest" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Site d'arrivée</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select id="ville-site" class="form-select" aria-label="Default select example">
                         <option selected>Choisir le site</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="date" required="">
+                    <label for="ville-date" class="form-label">Date</label>
+                    <input id="ville-date" type="date" class="form-control" required="">
                 </div>
                 <div class="row g-3 mb-3">
                     <div class="col-sm-6">
-                        <label for="" class="form-label">Heure de départ</label>
-                        <input type="time" class="form-control" id="time1" required="">
+                        <label for="ville-time-depart" class="form-label">Heure de départ</label>
+                        <input id="ville-time-depart" type="time" class="form-control" required="">
                     </div>
                     <div class="col-sm-6">
-                        <label for="" class="form-label">Heure d'arrivée</label>
-                        <input type="time" class="form-control" id="time2" required="">
+                        <label for="ville-time-depart" class="form-label">Heure d'arrivée</label>
+                        <input id="ville-time-arrive" type="time" class="form-control" required="">
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Prix</label>
-                    <input type="text" class="form-control" id="prix" required="">
+                <div class="row g-3 mb-3">
+                    <div class="col-sm-6">
+                        <label for="ville-prix" class="form-label">Prix</label>
+                        <input id="ville-prix" type="text" class="form-control" required="">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="ville-place" class="form-label">Nombre de places</label>
+                        <input id="ville-place" type="text" class="form-control" required="">
+                    </div>
                 </div>
                 <div class="mb-3 text-center">
                     <button type="submit" style="width: 10rem" class="btn btn-primary m-2">Valider</button>
@@ -99,39 +102,42 @@
                     id="popup-back" data-ref="" class="fa fa-chevron-left button"
                     style="visibility: visible;"></i></button>
             <img src="assets/oldcarSlim.png" class="card-img-top" alt="...">
-            <form class="card-body ">
+            <form class="card-body" onsubmit="return form_debut_isen()">
                 <h2 class="card-text p-2 text-center">Conduire
                     depuis un ISEN</h2>
                 <div class="mb-3">
-                    <label for="" class="form-label">Site de départ</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <label for="isen-site" class="form-label">Site de départ</label>
+                    <select id="isen-site" class="form-select" aria-label="Default select example">
                         <option selected>Choisir le site</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Addresse d'arrivée</label>
-                    <input type="text" class="form-control" id="address" placeholder="ex: Brest" required>
+                    <label for="isen-address" class="form-label">Addresse d'arrivée</label>
+                    <input id="isen-address" type="text" class="form-control" placeholder="ex: Brest" required>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="date" required="">
+                    <label for="isen-date" class="form-label">Date</label>
+                    <input id="isen-date" type="date" class="form-control" required="">
                 </div>
                 <div class="row g-3 mb-3">
                     <div class="col-sm-6">
-                        <label for="" class="form-label">Heure de départ</label>
-                        <input type="time" class="form-control" id="time1" required="">
+                        <label for="isen-time-depart" class="form-label">Heure de départ</label>
+                        <input id="isen-time-depart" type="time" class="form-control" required="">
                     </div>
                     <div class="col-sm-6">
-                        <label for="" class="form-label">Heure d'arrivée</label>
-                        <input type="time" class="form-control" id="time2" required="">
+                        <label for="isen-time-depart" class="form-label">Heure d'arrivée</label>
+                        <input id="isen-time-arrive" type="time" class="form-control" required="">
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Prix</label>
-                    <input type="text" class="form-control" id="prix" required="">
+                <div class="row g-3 mb-3">
+                    <div class="col-sm-6">
+                        <label for="isen-prix" class="form-label">Prix</label>
+                        <input id="isen-prix" type="text" class="form-control" required="">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="isen-place" class="form-label">Nombre de places</label>
+                        <input id="isen-place" type="text" class="form-control" required="">
+                    </div>
                 </div>
                 <div class="mb-3 text-center">
                     <button type="submit" style="width: 10rem" class="btn btn-primary m-2">Valider</button>
