@@ -81,12 +81,18 @@ VALUES ($val_place, $val_place, $val_prix, $adresse, $date_debut, $date_fin, $de
     echo json_encode($request_7);
   }
 
-
   //request 8 : recherche tous les trajets proposés par un utilisateur
   function seek_travel_by_user( varchar $val_pseudo )
     $request_8 = fetch('SELECT * FROM trajet INNER JOIN utilisateur ON trajet.pseudonyme=utilisateur.pseudonyme WHERE utilisateur.pseudonyme==$val_pseudo;');
 
     echo json_encode($request_8);
+  }
+
+  //request 9 : recherche tous les trajets proposés par un utilisateur
+  function seek_travel_by_user( varchar $val_pseudo )
+    $request_9 = fetch('DELETE * FROM trajet INNER JOIN utilisateur ON trajet.pseudonyme==utilisateur.pseudonyme WHERE id_trajet==$val_id AND utilisateur.pseudonyme==$val_pseudo;');
+
+    echo json_encode($request_9);
   }
 
     $phrase_request = 'SELECT prenom, nom FROM user';
